@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./List.scss";
-import { useDialog } from "../ConfirmationDialog";
+import { useDialog } from "promise-confirmation-dialog";
 
 const USERS = ["Billy", "Joe", "Doe", "Ann"];
 

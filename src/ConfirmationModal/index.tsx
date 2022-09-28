@@ -1,4 +1,4 @@
-import { useDialog } from "../ConfirmationDialog";
+import { useDialog } from "promise-confirmation-dialog";
 
 function ConfirmationDialogModal() {
   const { dialog } = useDialog();
