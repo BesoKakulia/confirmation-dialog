@@ -1,9 +1,15 @@
 {
   "name": "promise-confirmation-dialog",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Custom confirmation dialogue, implemented using promise",
-  "main": "index.tsx",
+  "main": "./src/index.tsx",
+  "module": "./src/index.tsx",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
+    "build": "rm -rf ./dist && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +30,10 @@
   },
   "homepage": "https://github.com/BesoKakulia/confirmation-dialog#readme",
   "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "react": "^18.2.0",
