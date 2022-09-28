@@ -2,7 +2,7 @@
 
 <br>
 
-### Custom react confirmation dialog, that implenets native dialog interface. <br>
+### Custom React confirmation dialog, that implements similar functionality to window.confirm. <br>
 
 <br>
 
@@ -14,7 +14,7 @@
 
 <br>
 
-### Native 💩
+### 💩 Native
 
 <br>
 
@@ -35,7 +35,7 @@ function Component() {
 
 <br>
 
-### Custom 🚀
+### 🚀 Custom
 
 <br>
 
@@ -58,7 +58,7 @@ function Component() { const { showDialog } = useDialog();
 
 <br>
 
-### To use the custom confirmation dialog, you must wrap your app with context provider. 🚚
+### 🚚 To use the custom confirmation dialog, you must wrap your app with context provider.
 
 ```jsx
 import React from "react";
