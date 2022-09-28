@@ -1,9 +1,9 @@
 {
   "name": "promise-confirmation-dialog",
-  "version": "1.0.3",
+  "version": "1.0.8",
   "description": "Custom confirmation dialogue, implemented using promise",
-  "main": "./src/index.tsx",
-  "module": "./src/index.tsx",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "files": [
     "dist",
     "src"
