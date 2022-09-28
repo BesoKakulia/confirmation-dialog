@@ -3,15 +3,15 @@ import { useContext, useState, createContext } from "react";
 type DialogStateType = {
   message: string | null;
   isOpen: boolean;
-  confirm: null | Function;
-  cancel: null | Function;
+  confirm: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  cancel: React.MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
 const DEFAULT_STATE: DialogStateType = {
   isOpen: false,
   message: null,
-  confirm: null,
-  cancel: null,
+  confirm: undefined,
+  cancel: undefined,
 };
 
 type DialogContextType = [DialogStateType, (value: DialogStateType) => void];
@@ -25,7 +25,7 @@ DialogContext.displayName = "DialogContext";
 export function useDialog() {
   const [dialog, setDialog] = useContext(DialogContext);
 
-  const confirm = (message) => {
+  const confirm = (message: string) => {
     const promise = new Promise((resolve, reject) => {
       setDialog({
         message,
@@ -70,7 +70,9 @@ export function ConfirmationDialog() {
   );
 }
 
-export function ConfirmationDialogProvider({ children }) {
+type Props = { children: React.ReactNode };
+
+export function ConfirmationDialogProvider({ children }: Props) {
   const [dialog, setDialog] = useState(DEFAULT_STATE);
 
   return (
