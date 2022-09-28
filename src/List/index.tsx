@@ -8,7 +8,7 @@ function List() {
   const { confirm } = useDialog();
   const [users, setUsers] = useState(USERS);
 
-  const confirmHandler = async (user) => {
+  const confirmHandler = async (user: string) => {
     const isConfirmed = await confirm("Hello World!");
     if (isConfirmed) {
       setUsers(users.filter((item) => item !== user));
