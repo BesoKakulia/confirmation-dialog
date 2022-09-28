@@ -1,0 +1,19 @@
+.users-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  padding: 20px;
+}
+
+.users-list-item {
+  display: flex;
+}
+
+.delete-user {
+  background-color: rgb(255, 51, 51);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  margin-left: auto;
+}
