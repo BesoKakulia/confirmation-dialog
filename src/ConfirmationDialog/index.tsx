@@ -47,7 +47,7 @@ export function useDialog() {
     );
   };
 
-  return { confirm };
+  return { confirm, dialog };
 }
 
 type Props = { children: React.ReactNode };
@@ -60,22 +60,4 @@ export function ConfirmationDialogProvider({ children }: Props) {
       {children}
     </DialogContext.Provider>
   );
-}
-
-export function ConfirmationDialog() {
-  const [dialog] = useContext(DialogContext);
-  return dialog.isOpen ? (
-    <div className="dialog">
-      <div className="dialog-header">{dialog.message}</div>
-      <div className="dialog-body"></div>
-      <div className="dialog-footer">
-        <button className="button confirm" onClick={dialog.confirm}>
-          Confirm
-        </button>
-        <button className="button cancel" onClick={dialog.cancel}>
-          Cancel
-        </button>
-      </div>
-    </div>
-  ) : null;
 }

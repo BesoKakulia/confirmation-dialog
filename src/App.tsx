@@ -1,9 +1,7 @@
 import React from "react";
 import "./App.scss";
-import {
-  ConfirmationDialogProvider,
-  ConfirmationDialog,
-} from "./ConfirmationDialog";
+import { ConfirmationDialogProvider } from "./ConfirmationDialog";
+import ConfirmationDialog from "./ConfirmationModal";
 import Users from "./List";
 
 function App() {
