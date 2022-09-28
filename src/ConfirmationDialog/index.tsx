@@ -1,6 +1,25 @@
 import { useContext, useState, createContext } from "react";
 
-const DialogContext = createContext();
+type DialogStateType = {
+  message: string | null;
+  isOpen: boolean;
+  confirm: null | Function;
+  cancel: null | Function;
+};
+
+const DEFAULT_STATE: DialogStateType = {
+  isOpen: false,
+  message: null,
+  confirm: null,
+  cancel: null,
+};
+
+type DialogContextType = [DialogStateType, (value: DialogStateType) => void];
+
+const DialogContext = createContext<DialogContextType>([
+  DEFAULT_STATE,
+  (value: DialogStateType) => undefined,
+]);
 DialogContext.displayName = "DialogContext";
 
 export function useDialog() {
@@ -52,12 +71,7 @@ export function ConfirmationDialog() {
 }
 
 export function ConfirmationDialogProvider({ children }) {
-  const [dialog, setDialog] = useState({
-    isOpen: false,
-    message: null,
-    confirm: null,
-    cancel: null,
-  });
+  const [dialog, setDialog] = useState(DEFAULT_STATE);
 
   return (
     <DialogContext.Provider value={[dialog, setDialog]}>
