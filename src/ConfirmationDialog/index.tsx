@@ -50,6 +50,18 @@ export function useDialog() {
   return { confirm };
 }
 
+type Props = { children: React.ReactNode };
+
+export function ConfirmationDialogProvider({ children }: Props) {
+  const [dialog, setDialog] = useState(DEFAULT_STATE);
+
+  return (
+    <DialogContext.Provider value={[dialog, setDialog]}>
+      {children}
+    </DialogContext.Provider>
+  );
+}
+
 export function ConfirmationDialog() {
   const [dialog] = useContext(DialogContext);
   return dialog.isOpen ? (
@@ -66,16 +78,4 @@ export function ConfirmationDialog() {
       </div>
     </div>
   ) : null;
-}
-
-type Props = { children: React.ReactNode };
-
-export function ConfirmationDialogProvider({ children }: Props) {
-  const [dialog, setDialog] = useState(DEFAULT_STATE);
-
-  return (
-    <DialogContext.Provider value={[dialog, setDialog]}>
-      {children}
-    </DialogContext.Provider>
-  );
 }
