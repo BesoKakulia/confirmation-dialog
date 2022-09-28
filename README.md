@@ -18,7 +18,7 @@
 
 <br>
 
-```
+```jsx
 function Component() {
 
     function delete() {
@@ -39,7 +39,7 @@ function Component() {
 
 <br>
 
-```
+```jsx
 import { useDialog } from "promise-confirmation-dialog";
 
 function Component() { const { showDialog } = useDialog();
@@ -60,8 +60,7 @@ function Component() { const { showDialog } = useDialog();
 
 ### To use the custom confirmation dialog, you must wrap your app with context provider. 🚚
 
-```
-
+```jsx
 import React from "react";
 import "./App.scss";
 import { useDialog } from "promise-confirmation-dialog";
@@ -117,6 +116,4 @@ function App() {
 }
 
 export default App;
-
-
 ```
