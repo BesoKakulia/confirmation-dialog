@@ -25,7 +25,7 @@ DialogContext.displayName = "DialogContext";
 export function useDialog() {
   const [dialog, setDialog] = useContext(DialogContext);
 
-  const confirm = (message: string) => {
+  const showDialog = (message: string) => {
     const promise = new Promise((resolve, reject) => {
       setDialog({
         message,
@@ -47,7 +47,7 @@ export function useDialog() {
     );
   };
 
-  return { confirm, dialog };
+  return { showDialog, dialog };
 }
 
 type Props = { children: React.ReactNode };

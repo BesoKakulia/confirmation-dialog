@@ -5,11 +5,11 @@ import { useDialog } from "../ConfirmationDialog";
 const USERS = ["Billy", "Joe", "Doe", "Ann"];
 
 function List() {
-  const { confirm } = useDialog();
+  const { showDialog } = useDialog();
   const [users, setUsers] = useState(USERS);
 
   const confirmHandler = async (user: string) => {
-    const isConfirmed = await confirm("Hello World!");
+    const isConfirmed = await showDialog("Hello World!");
     if (isConfirmed) {
       setUsers(users.filter((item) => item !== user));
     }
