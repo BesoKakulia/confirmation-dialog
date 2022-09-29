@@ -40,7 +40,8 @@ function Component() {
 ```jsx
 import { useDialog } from "promise-confirmation-dialog";
 
-function Component() { const { showDialog } = useDialog();
+function Component() {
+    const { showDialog } = useDialog();
 
     async function delete() {
         const confirmed = await showDialog("Do you really want to delete 📦"?)
@@ -56,7 +57,30 @@ function Component() { const { showDialog } = useDialog();
 
 <br>
 
-### 🚚 To use the custom confirmation dialog, you must wrap your app with context provider.
+### 📚 Interface
+
+`useDialog()` returns two properties, `showDialog` and `dialog`.
+
+<br>
+
+`showDialog` method takes message as argument, sets dialog state and returns promise.
+
+`dialog` is confirmation dialog state, which has following interface
+
+```jsx
+{
+    isOpen: boolean,
+    message: string,
+    confirm: resolve,
+    cancel: reject
+}
+```
+
+<br>
+
+### 🚚 Example
+
+To use the custom confirmation dialog, you must wrap your app with context provider.
 
 ```jsx
 import React from "react";
