@@ -78,9 +78,28 @@ function Component() {
 
 <br>
 
-### 🚚 Example
+### 🚚 To use the custom confirmation dialog, you must wrap your app with context provider.
 
-To use the custom confirmation dialog, you must wrap your app with context provider.
+```jsx
+import { ConfirmationDialogProvider } from "promise-confirmation-dialog";
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
+
+root.render(
+  <React.StrictMode>
+    <ConfirmationDialogProvider>
+      <App />
+    </ConfirmationDialogProvider>
+  </React.StrictMode>
+);
+
+```
+
+<br>
+
+### 🤸 Example
 
 ```jsx
 import React from "react";
