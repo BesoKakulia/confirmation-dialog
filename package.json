@@ -4,6 +4,7 @@
   "description": "Custom confirmation dialogue, implemented using promise",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "files": [
     "dist",
     "src"
@@ -35,6 +36,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/node": "^18.14.2",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "react": "^18.2.0",
