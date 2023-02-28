@@ -1,6 +1,6 @@
 ## **_React Confirmation Dialog_**
 
-Custom React confirmation dialog, that implements similar functionality to window.confirm. <br>
+Custom React confirmation dialog, that implements similar functionality to `window.confirm`. <br>
 
 <br>
 
