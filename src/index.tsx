@@ -1,23 +1,63 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { ConfirmationDialogProvider } from "promise-confirmation-dialog";
+import React, { useContext, useState, createContext } from "react";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+type DialogStateType = {
+  message: string | null;
+  isOpen: boolean;
+  confirm: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  cancel: React.MouseEventHandler<HTMLButtonElement> | undefined;
+};
 
-root.render(
-  <React.StrictMode>
-    <ConfirmationDialogProvider>
-      <App />
-    </ConfirmationDialogProvider>
-  </React.StrictMode>
-);
+const DEFAULT_STATE: DialogStateType = {
+  isOpen: false,
+  message: null,
+  confirm: undefined,
+  cancel: undefined,
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+type DialogContextType = [DialogStateType, (value: DialogStateType) => void];
+
+const DialogContext = createContext<DialogContextType>([
+  DEFAULT_STATE,
+  (value: DialogStateType) => undefined,
+]);
+DialogContext.displayName = "DialogContext";
+
+export function useDialog() {
+  const [dialog, setDialog] = useContext(DialogContext);
+
+  const showDialog = (message: string) => {
+    const promise = new Promise((resolve, reject) => {
+      setDialog({
+        message,
+        isOpen: true,
+        confirm: resolve,
+        cancel: reject,
+      });
+    });
+
+    return promise.then(
+      () => {
+        setDialog({ ...dialog, isOpen: false });
+        return true;
+      },
+      () => {
+        setDialog({ ...dialog, isOpen: false });
+        return false;
+      }
+    );
+  };
+
+  return { showDialog, dialog };
+}
+
+type Props = { children: React.ReactNode };
+
+export function ConfirmationDialogProvider({ children }: Props) {
+  const [dialog, setDialog] = useState(DEFAULT_STATE);
+
+  return (
+    <DialogContext.Provider value={[dialog, setDialog]}>
+      {children}
+    </DialogContext.Provider>
+  );
+}
