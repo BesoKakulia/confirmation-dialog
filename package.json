@@ -1,6 +1,6 @@
 {
   "name": "promise-confirmation-dialog",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Custom confirmation dialogue, implemented using promise",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
